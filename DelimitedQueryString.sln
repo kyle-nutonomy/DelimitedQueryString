@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelimitedQueryString", "src\DelimitedQueryString.csproj", "{D5545176-ACD4-4009-961F-A24067CBAA6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "example\Example.csproj", "{0B024311-B0C6-4EBE-B4D4-87BE14165BAC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5545176-ACD4-4009-961F-A24067CBAA6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5545176-ACD4-4009-961F-A24067CBAA6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5545176-ACD4-4009-961F-A24067CBAA6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5545176-ACD4-4009-961F-A24067CBAA6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B024311-B0C6-4EBE-B4D4-87BE14165BAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B024311-B0C6-4EBE-B4D4-87BE14165BAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B024311-B0C6-4EBE-B4D4-87BE14165BAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B024311-B0C6-4EBE-B4D4-87BE14165BAC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
