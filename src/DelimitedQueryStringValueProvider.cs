@@ -37,11 +37,6 @@ namespace DelimitedQueryString
         {
             var result = base.GetValue(key);
 
-            if (_keys != null && !_keys.Contains(key))
-            {
-                return result;
-            }
-
             if (result != ValueProviderResult.None &&
                 result.Values.Any(x => x.IndexOf(_separator, StringComparison.OrdinalIgnoreCase) > 0))
             {

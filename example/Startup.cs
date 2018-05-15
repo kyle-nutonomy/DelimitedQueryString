@@ -19,7 +19,7 @@ namespace DriveLogExtractions
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc(c => c.Conventions.Add(new CommaDelimitedQueryStringConvention()));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info {Title = "Example API", Version = "v1"});
