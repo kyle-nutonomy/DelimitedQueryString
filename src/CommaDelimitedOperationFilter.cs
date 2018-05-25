@@ -23,9 +23,12 @@ namespace DelimitedQueryString
             foreach (var parameter in parameters)
             {
                 var parameterDescription = context.ApiDescription.ParameterDescriptions
-                    .FirstOrDefault(p => string.Equals(p.Name, parameter.Name, StringComparison.OrdinalIgnoreCase));
+                    .FirstOrDefault(p =>
+                        string.Equals(p.Name, parameter.Name, StringComparison.OrdinalIgnoreCase));
 
-                if (parameterDescription == null || !HasCommaSeparated(parameterDescription))
+                if (parameterDescription == null || !parameterDescription.ModelMetadata.IsEnumerableType ||
+                    !HasCommaSeparated(parameterDescription)
+                )
                 {
                     return;
                 }
