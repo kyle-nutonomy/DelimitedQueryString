@@ -30,7 +30,7 @@ namespace DelimitedQueryString
                     !HasCommaSeparated(parameterDescription)
                 )
                 {
-                    return;
+                    continue;
                 }
 
                 parameter.CollectionFormat = "csv";
