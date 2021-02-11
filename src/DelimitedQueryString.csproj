@@ -1,15 +1,17 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageId>DelimitedQueryString</PackageId>
-    <PackageVersion>1.0.4</PackageVersion>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageId>Motional.DelimitedQueryString</PackageId>
+    <OutputType>Library</OutputType>
+    <IsPackable>true</IsPackable>
+    <Authors>Motional</Authors>
+    <PackageVersion>1.1.0</PackageVersion>
     <Description>Parse value query strings with delimiters</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageProjectUrl>https://github.com/clouddra/DelimitedQueryString</PackageProjectUrl>
+    <Copyright>Copyright 2020 (c) Motional. All rights reserved.</Copyright>
+    <PackageProjectUrl>https://github.com/kyle-nutonomy/DelimitedQueryString</PackageProjectUrl>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.ApiExplorer" Version="2.0.4" />
-    <PackageReference Include="NETStandard.Library" Version="2.0.3" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="3.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.0.4" />
   </ItemGroup>
 </Project>

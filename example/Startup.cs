@@ -1,10 +1,10 @@
 ﻿using DelimitedQueryString;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.Hosting;
 
 namespace DriveLogExtractions
 {
@@ -12,7 +12,7 @@ namespace DriveLogExtractions
     {
         private IConfiguration Configuration { get; }
 
-        public Startup(IConfiguration configuration, IHostingEnvironment environment)
+        public Startup(IConfiguration configuration, IHostEnvironment environment)
         {
             Configuration = configuration;
         }
@@ -22,12 +22,12 @@ namespace DriveLogExtractions
             services.AddMvc(c => c.Conventions.Add(new CommaDelimitedQueryStringConvention()));
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info {Title = "Example API", Version = "v1"});
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Example API", Version = "v1" });
                 c.OperationFilter<CommaDelimitedOperationFilter>();
             });
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostEnvironment env, ILoggerFactory loggerFactory)
         {
             app.UseSwagger();
             app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Example API V1"); });

@@ -2,6 +2,8 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.Controllers;
+using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi.Services;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
@@ -9,11 +11,11 @@ namespace DelimitedQueryString
 {
     public class CommaDelimitedOperationFilter : IOperationFilter
     {
-        public void Apply(Operation operation, OperationFilterContext context)
+        public void Apply(OpenApiOperation operation, OperationFilterContext context)
         {
             var parameters = operation.Parameters?
-                .OfType<NonBodyParameter>()
-                .Where(p => p.In.Equals("query", StringComparison.OrdinalIgnoreCase));
+                .OfType<OpenApiParameter>()
+                .Where(p => p.In == ParameterLocation.Query);
 
             if (parameters == null)
             {
@@ -33,13 +35,13 @@ namespace DelimitedQueryString
                     continue;
                 }
 
-                parameter.CollectionFormat = "csv";
+                parameter.Style = ParameterStyle.Form;
             }
         }
 
         private static bool HasCommaSeparated(ApiParameterDescription apiParamDesc)
         {
-            return ((ControllerParameterDescriptor) apiParamDesc.ParameterDescriptor)
+            return ((ControllerParameterDescriptor)apiParamDesc.ParameterDescriptor)
                 .ParameterInfo
                 .CustomAttributes
                 .Any(a => a.AttributeType == typeof(CommaDelimitedAttribute));
