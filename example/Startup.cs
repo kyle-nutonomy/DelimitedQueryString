@@ -19,7 +19,7 @@ namespace DriveLogExtractions
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(c => c.Conventions.Add(new CommaDelimitedQueryStringConvention()));
+            services.AddControllers(c => c.Conventions.Add(new CommaDelimitedQueryStringConvention()));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Example API", Version = "v1" });
@@ -31,7 +31,8 @@ namespace DriveLogExtractions
         {
             app.UseSwagger();
             app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Example API V1"); });
-            app.UseMvc();
+            app.UseRouting();
+            app.UseEndpoints(endpoints => endpoints.MapControllers());
         }
     }
 }
